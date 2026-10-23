@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antonio Loffredi | Data and game analyst</title>
+  <meta name="description" content="Antonio Loffredi: game design graduate who turns sales data into decisions and builds games, tools, and economy models.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip" href="#projects">Skip to projects</a>
+
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Antonio Loffredi</h1>
+      <p class="lede">I turn sales data into decisions, and I design games people actually sit down and play.</p>
+      <p class="sub">Game design graduate (Full Sail University) looking for data and game analyst roles in Austin or remote.</p>
+      <nav class="links" aria-label="Contact and profiles">
+        <a class="btn primary" href="assets/Antonio-Loffredi-Resume.pdf">Resume (PDF)</a>
+        <a class="btn" href="https://github.com/TheBlueWombat46">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/antonio-loffredi-02bb55196">LinkedIn</a>
+        <a class="btn" href="https://thebluewombat46.itch.io/">itch.io</a>
+        <a class="btn" href="mailto:antonio_loffredi@yahoo.com">Email me</a>
+      </nav>
+    </div>
+    <div class="hand" aria-hidden="true">
+      <div class="mini c1"><img src="assets/art/pocket_change.png" alt=""><span class="band gold">Starting</span></div>
+      <div class="mini c2"><img src="assets/art/humans_willpower.png" alt=""><span class="band green">Faction</span></div>
+      <div class="mini c3"><img src="assets/art/vault_of_wonders.png" alt=""><span class="band blue">Treasure</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="projects" aria-labelledby="projects-h">
+      <h2 id="projects-h">Projects</h2>
+      <div class="table">
+
+        <article class="card wide">
+          <div class="card-body">
+            <h3><a href="https://github.com/TheBlueWombat46/MTG-Pack-EV-Tool">MTG Pack EV Tool</a></h3>
+            <p>An expected value model that answers a game store owner's question: is a Magic: The Gathering booster pack worth more sealed, or opened and sold as singles?</p>
+            <ol class="pipeline" aria-label="How the model works">
+              <li><strong>Scryfall API</strong><span>Live prices for every printing in a set</span></li>
+              <li><strong>Booster model</strong><span>Card counts and pull rates per pack slot</span></li>
+              <li><strong>Realizable value</strong><span>After fees, discounts, shipping and a minimum listing price</span></li>
+              <li><strong>Decision</strong><span>Expected profit and ROI per pack</span></li>
+            </ol>
+            <p>Checking the output against official product contents turned up two errors: a column reference that zeroed out most card values, and Collector Booster cards inflating draft booster value. I found and fixed both.</p>
+            <p class="more"><a href="https://github.com/TheBlueWombat46/MTG-Pack-EV-Tool">Read the code and write-up on GitHub</a></p>
+          </div>
+          <span class="band blue">Data and automation: Google Sheets, Apps Script, REST API</span>
+        </article>
+
+        <article class="card">
+          <a class="media video" href="https://www.youtube.com/watch?v=t8teT1n_I3k">
+            <img src="https://img.youtube.com/vi/t8teT1n_I3k/hqdefault.jpg" alt="Gameplay from Hero of the Banished" loading="lazy">
+            <span class="play">Watch gameplay</span>
+          </a>
+          <div class="card-body">
+            <h3><a href="https://www.youtube.com/watch?v=t8teT1n_I3k">Hero of the Banished</a></h3>
+            <p>Team capstone, a 3D action puzzle game. I programmed player movement, climbing, dodge rolls, combat, the camera and lock-on targeting, and designed two levels: a timed collapsing tower and a dungeon with several routes out.</p>
+          </div>
+          <span class="band red">Game programming: Unity, C#</span>
+        </article>
+
+        <article class="card">
+          <a class="media" href="https://thebluewombat46.itch.io/the-quest-of-greed">
+            <img src="assets/quest-of-greed-cover.png" alt="Cards from The Quest of Greed" loading="lazy">
+          </a>
+          <div class="card-body">
+            <h3><a href="https://thebluewombat46.itch.io/the-quest-of-greed">The Quest of Greed</a></h3>
+            <p>A 2 to 4 player deckbuilding race. Each treasure has a one-time power that destroys it when used, so every turn asks whether to spend it now or keep it for points.</p>
+          </div>
+          <span class="band gold">Tabletop and economy design, free print and play</span>
+        </article>
+
+        <article class="card">
+          <a class="media" href="https://thebluewombat46.itch.io/keep-jousting">
+            <img src="assets/keep-jousting-cover.png" alt="The Keep Jousting board" loading="lazy">
+          </a>
+          <div class="card-body">
+            <h3><a href="https://thebluewombat46.itch.io/keep-jousting">Keep Jousting</a></h3>
+            <p>A two player dice game where where your die lands matters as much as what it rolls. Shaped by four weeks of tracked playtests, probability checks and three design experiments, all in the included journal.</p>
+          </div>
+          <span class="band gold">Tabletop design and playtesting, free print and play</span>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="work" aria-labelledby="work-h">
+      <h2 id="work-h">At work</h2>
+      <p class="intro">I manage five flooring departments at Floor &amp; Decor, where most of my decisions start in Power BI.</p>
+      <div class="stories">
+        <div class="story">
+          <img src="assets/art/map_to_the_worlds_edge.png" alt="">
+          <h3>Reading past the average</h3>
+          <p>Company data showed red and pink products declining. Broken down by subdepartment, they were only stocked in 2 of 8, and where they were stocked they earned 32% of sales from 16% of the products. The decline was about availability, not demand, so we expanded them.</p>
+        </div>
+        <div class="story">
+          <img src="assets/art/sands_of_time.png" alt="">
+          <h3>Tools people use</h3>
+          <p>I built an Excel tool that turns a product number into a finished display sign, cutting each one from about 4 minutes to 30 seconds. It is now being pitched for company-wide use. A second script formats a weekly department report in a quarter of the time, and my district manager asked for a copy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" aria-labelledby="about-h">
+      <h2 id="about-h">About</h2>
+      <p>Before retail I played professional soccer in Germany. Today I live just outside Austin, where I manage flooring departments by day and build games, tools and economy models on my own time. Next on my desk: a Unity mechanics lab with built-in player telemetry, so the same project shows both the game and the data behind it.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Want to talk? <a href="mailto:antonio_loffredi@yahoo.com">antonio_loffredi@yahoo.com</a></p>
+  </footer>
+  <script>
+    // Deal the hand of cards once the page has loaded
+    window.addEventListener("load", function () {
+      requestAnimationFrame(function () { document.querySelector(".hand").classList.add("dealt"); });
+    });
+  </script>
+</body>
+</html>

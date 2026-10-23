@@ -1,0 +1,297 @@
+/* Palette: a game table. Felt for the page, playing cards for content,
+   and colored bands (borrowed from my own card designs) that say what kind of work each card is. */
+:root {
+  --felt: #234238;
+  --felt-deep: #19312a;
+  --card: #fbfbf8;
+  --ink: #1d2622;
+  --ink-soft: #4d5a54;
+  --gold: #dca63a;
+  --blue: #2f6f8f;
+  --red: #a8473a;
+  --green: #4a7a3a;
+  --radius-card: 14px;
+  --display: "Pixelify Sans", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 30% 0%, #2b4f43 0%, transparent 60%),
+    var(--felt);
+  color: var(--card);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  background: var(--card);
+  color: var(--ink);
+  padding: 0.5rem 1rem;
+}
+.skip:focus { left: 0.5rem; }
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 5.5rem 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 5.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.5rem;
+  color: var(--card);
+}
+
+.lede {
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  line-height: 1.4;
+  margin: 0 0 0.75rem;
+  max-width: 30ch;
+}
+
+.sub {
+  color: #c9d6cf;
+  margin: 0 0 2rem;
+  max-width: 52ch;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  border: 2px solid rgba(251, 251, 248, 0.55);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn:hover { border-color: var(--card); background: rgba(251, 251, 248, 0.08); }
+.btn.primary { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+.btn.primary:hover { background: #e7b752; }
+
+/* The hand of cards: the one animated moment on the page */
+.hand {
+  position: relative;
+  height: 340px;
+}
+.mini {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  width: 170px;
+  padding: 12px 12px 10px;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  transform-origin: 50% 120%;
+  transition: transform 0.9s cubic-bezier(.2, .8, .2, 1);
+}
+.mini img {
+  display: block;
+  width: 100%;
+  image-rendering: pixelated;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.mini .band { position: static; display: block; border-radius: 6px; }
+.c1 { transform: translateX(-50%) rotate(-14deg) translateX(-70px); }
+.c2 { transform: translateX(-50%) rotate(0deg) translateY(-18px); z-index: 2; }
+.c3 { transform: translateX(-50%) rotate(14deg) translateX(70px); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .hand:not(.dealt) .mini { transform: translateX(-50%) translateY(60px) rotate(0deg); }
+}
+
+/* ---------- Sections ---------- */
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+section { margin-top: 4.5rem; }
+
+h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 2.25rem;
+  color: var(--gold);
+  margin: 0 0 1.5rem;
+}
+
+h3 {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+}
+h3 a { text-decoration: none; }
+h3 a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Project cards ---------- */
+.table {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  color: var(--ink);
+  border-radius: var(--radius-card);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.card.wide { grid-column: 1 / -1; }
+
+.card-body { padding: 1.4rem 1.5rem 1rem; flex: 1; }
+.card-body p { margin: 0 0 0.9rem; color: var(--ink-soft); }
+.card.wide .card-body > p { max-width: 70ch; }
+
+.media { display: block; position: relative; background: #1c1a24; }
+.media img { display: block; width: 100%; aspect-ratio: 63 / 50; object-fit: cover; }
+.media.video img { aspect-ratio: 16 / 10; object-fit: cover; }
+.play {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  background: var(--card);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+}
+.media:hover .play { background: var(--gold); }
+
+.band {
+  display: block;
+  margin: 0 1.5rem 1.25rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+}
+.band.blue { background: var(--blue); }
+.band.red { background: var(--red); }
+.band.gold { background: #a87a17; }
+.band.green { background: var(--green); }
+.mini .band { font-size: 0.75rem; padding: 0.2rem 0.4rem; }
+
+.more a { color: var(--blue); font-weight: 700; }
+
+/* The EV pipeline: a real sequence, so it is numbered */
+.pipeline {
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.25rem;
+  padding: 0;
+}
+.pipeline li {
+  counter-increment: step;
+  border: 2px solid #d9ded9;
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+  background: #fff;
+}
+.pipeline li::before {
+  content: counter(step);
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+.pipeline strong { display: block; color: var(--ink); }
+.pipeline span { display: block; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.4; }
+
+/* ---------- At work ---------- */
+.intro { max-width: 60ch; margin: 0 0 1.75rem; color: #dbe5df; }
+.stories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+.story img {
+  width: 56px;
+  image-rendering: pixelated;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+.story p { color: #dbe5df; margin: 0; max-width: 60ch; }
+
+/* ---------- About & footer ---------- */
+.about p { max-width: 64ch; color: #dbe5df; margin: 0; }
+
+footer {
+  background: var(--felt-deep);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+footer p { margin: 0; font-size: 1.15rem; }
+footer a { color: var(--gold); font-weight: 700; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 3.5rem; }
+  .hand { height: 280px; order: -1; }
+  .mini { width: 140px; }
+  .table { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 1rem; }
+  .hero { padding: 2.5rem 1rem 2.5rem; }
+  .hand { height: 230px; }
+  .mini { width: 115px; padding: 8px 8px 7px; }
+  main { padding: 0 1rem 3rem; }
+  .table, .stories { grid-template-columns: 1fr; }
+  .pipeline { grid-template-columns: 1fr; }
+  .card-body { padding: 1.2rem 1.1rem 0.8rem; }
+  .band { margin: 0 1.1rem 1rem; }
+}
